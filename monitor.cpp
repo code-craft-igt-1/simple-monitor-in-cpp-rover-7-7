@@ -32,7 +32,11 @@ const Messages& messages) {
 bool isTemperatureCritical(float temperature) {
     const float TEMP_UPPER_LIMIT = 102.0;
     const float TEMP_LOWER_LIMIT = 95.0;
+<<<<<<< HEAD
     return temperature > TEMP_UPPER_LIMIT | temperature < TEMP_LOWER_LIMIT;
+=======
+    return temperature > TEMP_UPPER_LIMIT || temperature < TEMP_LOWER_LIMIT;
+>>>>>>> 80e8386d0c574475e6f69acde836faf6673b6bf5
 }
 
 bool isTemperatureWarning(float temperature) {
@@ -41,8 +45,13 @@ bool isTemperatureWarning(float temperature) {
     const float WARNING_TOLERANCE = 1.5 / 100.0;
     float upperWarningLimit = TEMP_UPPER_LIMIT - (TEMP_UPPER_LIMIT * WARNING_TOLERANCE);
     float lowerWarningLimit = TEMP_LOWER_LIMIT + (TEMP_LOWER_LIMIT * WARNING_TOLERANCE);
+<<<<<<< HEAD
     return (temperature >= upperWarningLimit & temperature < TEMP_UPPER_LIMIT) |
            (temperature > TEMP_LOWER_LIMIT & temperature <= lowerWarningLimit);
+=======
+    return (temperature >= upperWarningLimit && temperature < TEMP_UPPER_LIMIT) ||
+           (temperature > TEMP_LOWER_LIMIT && temperature <= lowerWarningLimit);
+>>>>>>> 80e8386d0c574475e6f69acde836faf6673b6bf5
 }
 
 bool checkTemperature(float temperature, const std::string& language,
@@ -72,8 +81,13 @@ bool isPulseRateWarning(float pulseRate) {
     const float WARNING_TOLERANCE = 1.5 / 100.0;
     float upperWarningLimit = PULSE_UPPER_LIMIT - (PULSE_UPPER_LIMIT * WARNING_TOLERANCE);
     float lowerWarningLimit = PULSE_LOWER_LIMIT + (PULSE_LOWER_LIMIT * WARNING_TOLERANCE);
+<<<<<<< HEAD
     return (pulseRate >= upperWarningLimit & pulseRate < PULSE_UPPER_LIMIT) |
            (pulseRate > PULSE_LOWER_LIMIT & pulseRate <= lowerWarningLimit);
+=======
+    return (pulseRate >= upperWarningLimit && pulseRate < PULSE_UPPER_LIMIT) ||
+           (pulseRate > PULSE_LOWER_LIMIT && pulseRate <= lowerWarningLimit);
+>>>>>>> 80e8386d0c574475e6f69acde836faf6673b6bf5
 }
 
 bool checkPulseRate(float pulseRate, const std::string& language, const Messages& messages) {
@@ -99,7 +113,11 @@ bool isSpo2Warning(float spo2) {
     const float SPO2_LOWER_LIMIT = 90.0;
     const float WARNING_TOLERANCE = 1.5 / 100.0;
     float lowerWarningLimit = SPO2_LOWER_LIMIT + (SPO2_LOWER_LIMIT * WARNING_TOLERANCE);
+<<<<<<< HEAD
     return spo2 >= SPO2_LOWER_LIMIT & spo2 <= lowerWarningLimit;
+=======
+    return spo2 >= SPO2_LOWER_LIMIT && spo2 <= lowerWarningLimit;
+>>>>>>> 80e8386d0c574475e6f69acde836faf6673b6bf5
 }
 
 bool checkSpo2(float spo2, const std::string& language, const Messages& messages) {
@@ -114,8 +132,13 @@ bool checkSpo2(float spo2, const std::string& language, const Messages& messages
 
 int vitalsOk(float temperature, float pulseRate, float spo2,
 const std::string& language, const Messages& messages) {
+<<<<<<< HEAD
     return checkTemperature(temperature, language, messages) &
            checkPulseRate(pulseRate, language, messages) &
+=======
+    return checkTemperature(temperature, language, messages) &&
+           checkPulseRate(pulseRate, language, messages) &&
+>>>>>>> 80e8386d0c574475e6f69acde836faf6673b6bf5
            checkSpo2(spo2, language, messages);
 }
 
